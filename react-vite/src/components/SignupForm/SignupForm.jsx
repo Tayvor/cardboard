@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './LoginForm.css';
+import './SignupForm.css';
 
-function LoginForm() {
+function SignupForm() {
 
   const handleSubmit = () => {
     console.log('submitted!')
   }
 
   return (
-    <form onSubmit={handleSubmit} className='loginForm'>
-      <h1>Login</h1>
+    <form onSubmit={handleSubmit} className='signupForm'>
+      <h1>Signup</h1>
+
+      <label>
+        Email:
+        <input type="text" />
+      </label>
 
       <label>
         Username:
@@ -27,4 +32,4 @@ function LoginForm() {
   )
 }
 
-export default LoginForm
+export default SignupForm;
