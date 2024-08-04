@@ -13,21 +13,27 @@ function SignupForm() {
       <h1>Signup</h1>
 
       <label>
-        Email:
-        <input type="text" />
+        <input
+          type="text"
+          placeholder='Email'
+        />
       </label>
 
       <label>
-        Username:
-        <input type="text" />
+        <input
+          type="text"
+          placeholder='Username'
+        />
       </label>
 
       <label>
-        Password:
-        <input type="text" />
+        <input
+          type="text"
+          placeholder='Password'
+        />
       </label>
 
-      <button>Submit</button>
+      <button className='submitBtn'>Submit</button>
     </form>
   )
 }
