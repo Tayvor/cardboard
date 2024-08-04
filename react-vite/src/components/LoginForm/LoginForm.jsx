@@ -10,19 +10,21 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className='loginForm'>
-      <h1>Login</h1>
+      <div className="wrapper">
+        <h1>Login</h1>
 
-      <label>
-        Username:
-        <input type="text" />
-      </label>
+        <label>
+          Username:
+          <input type="text" />
+        </label>
 
-      <label>
-        Password:
-        <input type="text" />
-      </label>
+        <label>
+          Password:
+          <input type="text" />
+        </label>
 
-      <button>Submit</button>
+        <button>Submit</button>
+      </div>
     </form>
   )
 }
