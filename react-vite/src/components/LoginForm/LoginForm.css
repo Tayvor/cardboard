@@ -1,18 +1,6 @@
 .loginForm {
+  width: 100vw;
   display: flex;
   flex-direction: column;
-}
-
-.wrapper {
-  width: 100vw;
   align-items: center;
-  border: 2px solid red;
-  border-left: 0;
-}
-
-input {
-  width: 150px;
-  height: 30px;
-  border-radius: 3px;
-  border: 1px solid gray;
 }
