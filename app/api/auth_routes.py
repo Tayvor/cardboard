@@ -10,6 +10,7 @@ auth_routes = Blueprint('auth', __name__)
 def authenticate():
   if current_user.is_authenticated:
     return current_user.to_dict()
+
   return {'errors': {'message': 'Unauthorized'}}, 401
 
 
@@ -34,6 +35,7 @@ def sign_up():
 
 @auth_routes.post('/login')
 def login():
+  print('hello from login route')
   form = LoginForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 

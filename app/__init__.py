@@ -7,11 +7,10 @@ from flask_wtf.csrf import generate_csrf
 from .models import db, User
 from .config import Config
 from .seeds import seed_commands
-
 from .api.auth_routes import auth_routes
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../react-vite/dist', static_url_path='/')
 
 
 # login manager

@@ -34,6 +34,12 @@ function SignupForm() {
       </label>
 
       <button className='submitBtn'>Submit</button>
+
+      <div className="footer">Already have an account?</div>
+      <div
+        className="loginText"
+        onClick={() => navigate('/login')}
+      >Login!</div>
     </form>
   )
 }
