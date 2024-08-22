@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import './LoginForm.css';
-import { thunkLogin } from '../../redux/session';
+import { thunkLogin } from '../../../redux/session';
+import '../../Forms/Forms.css';
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -24,37 +24,39 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='loginForm'>
-      <h1>Login</h1>
+    <form onSubmit={handleSubmit} className='authForm'>
+      <h1 className='formTitle'>Login</h1>
 
       <label>
         <input
-          type="text"
           placeholder='Username'
           onChange={(e) => setUsername(e.target.value)}
+          className='authInput'
+          type="text"
           required
         />
       </label>
 
       <label>
         <input
-          type="text"
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
+          className='authInput'
+          type="password"
           required
         />
       </label>
 
       <button
-        className='submitBtn'
-        disabled={username && password ? false : true}
+        className='authSubmit'
       >Submit</button>
 
-      <div className="footer">Need an account?</div>
-      <div
-        className="signupText"
-        onClick={() => navigate('/signup')}
-      >Sign Up!</div>
+      <div className="footer">Need an account?
+        <div
+          className="footerLink"
+          onClick={() => navigate('/signup')}
+        >Sign Up!</div>
+      </div>
     </form>
   )
 }
