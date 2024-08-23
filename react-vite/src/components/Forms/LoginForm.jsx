@@ -13,39 +13,41 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await dispatch(
-      thunkLogin({
-        username,
-        password,
-      })
-    )
+    const data = new FormData();
+    data.append('username', username);
+    data.append('password', password);
 
-    console.log('submitted!')
+    const res = await dispatch(thunkLogin(data));
+
+    if (res) {
+      const error = await res.json();
+      return
+    }
+
+    navigate('/')
   }
 
   return (
     <form onSubmit={handleSubmit} className='authForm'>
       <h1 className='formTitle'>Login</h1>
 
-      <label>
-        <input
-          placeholder='Username'
-          onChange={(e) => setUsername(e.target.value)}
-          className='authInput'
-          type="text"
-          required
-        />
-      </label>
+      <input
+        type="text"
+        value={username}
+        placeholder='Username'
+        onChange={(e) => setUsername(e.target.value)}
+        className='authInput'
+        required
+      />
 
-      <label>
-        <input
-          placeholder='Password'
-          onChange={(e) => setPassword(e.target.value)}
-          className='authInput'
-          type="password"
-          required
-        />
-      </label>
+      <input
+        type="password"
+        value={password}
+        placeholder='Password'
+        onChange={(e) => setPassword(e.target.value)}
+        className='authInput'
+        required
+      />
 
       <button
         className='authSubmit'

@@ -22,12 +22,27 @@ export const thunkSignup = () => async dispatch => {
   }
 }
 
-export const thunkLogin = () => async dispatch => {
-  const res = await fetch('/api/auth/login');
+export const thunkLogin = (data) => async dispatch => {
+  const res = await fetch('/api/auth/login', {
+    method: 'POST',
+    body: data
+  });
 
   if (res.ok) {
     const user = await res.json();
     dispatch(addUser(user))
+  }
+  else {
+    const error = await res.json()
+    return error
+  }
+}
+
+export const thunkLogout = () => async dispatch => {
+  const res = await fetch('/api/auth/logout');
+
+  if (res.ok) {
+    dispatch(removeUser());
   }
 }
 

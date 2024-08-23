@@ -3,7 +3,7 @@ from app.models import User, db
 from app.forms import LoginForm, SignUpForm
 from flask_login import current_user, login_user, logout_user
 
-auth_routes = Blueprint('auth', __name__)
+auth_routes = Blueprint('auth', __name__, url_prefix='/api/auth')
 
 
 @auth_routes.get('/')
@@ -35,13 +35,13 @@ def sign_up():
 
 @auth_routes.post('/login')
 def login():
-  print('hello from login route')
   form = LoginForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   if form.validate_on_submit():
-    query = db.select(User).filter_by(User.email==form.data['email'])
-    user = db.session.execute(query)
+    query = db.select(User).filter_by(username=form.data['username'])
+    result = db.session.execute(query).one()
+    user = result[0]
     login_user(user)
     return user.to_dict()
 

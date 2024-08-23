@@ -1,9 +1,19 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { thunkLogout } from '../../redux/session';
 import './Header.css';
 
 
 export default function Header() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.session.user);
+
+  const logout = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(thunkLogout());
+    navigate('/')
+  }
 
   return (
     <div className='header'>
@@ -17,10 +27,17 @@ export default function Header() {
         onClick={() => navigate('')}
       >cardBoard</h1>
 
-      <button
-        className='loginBtn btn'
-        onClick={() => navigate('/login')}
-      >Login</button>
-    </div>
+      {user?.username ?
+        <button
+          className='loginBtn btn'
+          onClick={(e) => logout(e)}
+        >Logout</button>
+        :
+        <button
+          className='loginBtn btn'
+          onClick={() => navigate('/login')}
+        >Login</button>
+      }
+    </div >
   )
 }
