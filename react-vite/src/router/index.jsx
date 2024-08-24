@@ -3,6 +3,7 @@ import Layout from './Layout'
 import ErrorPage from "./ErrorPage";
 import LoginForm from '../components/Forms/LoginForm';
 import SignupForm from "../components/Forms/SignupForm";
+import Dashboard from "../components/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: 'signup',
         element: <SignupForm />
+      },
+      {
+        path: 'dashboard',
+        element: <Dashboard />
       },
     ],
   }
