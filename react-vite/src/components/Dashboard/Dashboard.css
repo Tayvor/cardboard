@@ -1,15 +1,9 @@
 .dashboard {
   display: flex;
-  border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
 }
 
-.dashboardLeft {
-  width: 250px;
-  border: 1px solid red;
-  border-right: 2px solid gray;
-}
-
-.dashboardRight {
-  border: 1px solid blue;
-  margin-left: 10px;
+.randomImg {
+  max-width: 250px;
 }

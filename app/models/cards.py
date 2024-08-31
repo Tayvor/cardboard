@@ -9,6 +9,7 @@ class Cards(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(), nullable=False, unique=True)
+  legalities = db.Column(db.JSON)
 
   def to_dict(self):
         return {

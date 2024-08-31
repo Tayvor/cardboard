@@ -17,11 +17,6 @@ export default function Header() {
 
   return (
     <div className='header'>
-      <button
-        className="menuBtn btn"
-        onClick={() => navigate('/dashboard')}
-      >Dashboard</button>
-
       <h1
         className='title'
         onClick={() => navigate('')}
