@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA
 
 
-class Cards(db.Model):
+class Card(db.Model):
   __tablename__ = 'cards'
 
   if environment == "production":

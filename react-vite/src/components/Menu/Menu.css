@@ -1,0 +1,19 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: fit-content;
+  font-size: 25px;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.menu>li {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.menu>li:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}

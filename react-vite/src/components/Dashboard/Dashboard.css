@@ -1,27 +1,3 @@
 .dashboard {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.randomImg {
-  max-width: 250px;
-  margin: 20px;
-}
-
-.randomImgBtn {
-  margin: 0;
-  width: 180px;
-  height: 40px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 20px;
-  color: gray;
-}
-
-.randomImgBtn:hover {
-  cursor: pointer;
-  border: 2px solid black;
-  color: black;
 }
