@@ -25,6 +25,7 @@ export default function Dashboard() {
 
       <button
         onClick={(e) => getRandomCard(e)}
+        className='randomImgBtn'
       >Random Card</button>
     </div>
   )
