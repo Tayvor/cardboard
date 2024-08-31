@@ -11,7 +11,7 @@ class Card(db.Model):
   name = db.Column(db.String, nullable=False, unique=True)
   legalities = db.Column(db.JSON)
   artist = db.Column(db.String)
-  colors = db.Column(db.ARRAY(db.String))
+  colors = db.Column(db.String)
   image_url = db.Column(db.String)
   mana_cost = db.Column(db.Integer)
   rarity = db.Column(db.String)
