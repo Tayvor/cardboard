@@ -14,6 +14,9 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(), nullable=False, unique=True)
   hashed_password = db.Column(db.String(), nullable=False)
 
+  decks = db.relationship('Deck',  back_populates='user')
+
+
   @property
   def password(self):
     return self.hashed_password
@@ -26,7 +29,7 @@ class User(db.Model, UserMixin):
     return check_password_hash(self.password, password)
 
   def to_dict(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-        }
+    return {
+      'id': self.id,
+      'username': self.username,
+    }
