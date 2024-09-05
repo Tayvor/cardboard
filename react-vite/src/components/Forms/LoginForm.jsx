@@ -24,7 +24,7 @@ function LoginForm() {
       return
     }
 
-    navigate('/dashboard')
+    navigate('/');
   }
 
   return (
