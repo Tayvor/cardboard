@@ -1,15 +1,23 @@
 import { useState } from "react";
 import './Menu.css';
 
-export default function Menu() {
+export default function Menu({ setView }) {
 
   return (
     <ul className="menu">
-      <li>Search</li>
+      <li
+        onClick={() => setView('search')}
+      >Search</li>
       <hr />
-      <li>Collection</li>
+
+      <li
+        onClick={() => setView('cards')}
+      >Cards</li>
       <hr />
-      <li>Decks</li>
+
+      <li
+        onClick={() => setView('decks')}
+      >Decks</li>
       <hr />
     </ul>
   )
