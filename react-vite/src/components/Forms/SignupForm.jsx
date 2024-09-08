@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './Forms.css';
 
@@ -62,13 +62,6 @@ function SignupForm() {
       <button
         className='authSubmit'
       >Submit</button>
-
-      <div className="footer">Already have an account?
-        <div
-          className="footerLink"
-          onClick={() => navigate('/login')}
-        >Login!</div>
-      </div>
     </form>
   )
 }

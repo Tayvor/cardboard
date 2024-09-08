@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { thunkLogin } from '../../redux/session';
+import SignupForm from './SignupForm';
 import './Forms.css';
 
 function LoginForm() {
@@ -52,13 +53,6 @@ function LoginForm() {
       <button
         className='authSubmit'
       >Submit</button>
-
-      <div className="footer">Need an account?
-        <div
-          className="footerLink"
-          onClick={() => navigate('/signup')}
-        >Sign Up!</div>
-      </div>
     </form>
   )
 }

@@ -1,29 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Menu from '../Menu';
-import Search from '../Search';
-import Cards from '../Cards';
-import Decks from '../Decks';
+import LoginForm from '../Forms/LoginForm';
+import SignupForm from '../Forms/SignupForm';
+import Profile from '../Profile';
 import './Dashboard.css';
 
 
 export default function Dashboard() {
   const user = useSelector((state) => state.session.user);
-  const [view, setView] = useState('search');
+  const [component, setComponent] = useState(<LoginForm key='login' />)
 
   return (
     <div className='dashboard'>
-      <Menu setView={setView} />
+      {user.id ? <Profile /> : component}
 
-      {view == 'search' &&
-        <Search />
+      {!user.id && component?.key == 'signup' &&
+        <div className='dashboardLink'
+          onClick={() => setComponent(
+            <LoginForm key='login' />
+          )}
+        >Already have an account?
+          <div>Login!</div>
+        </div>
       }
-      {view == 'cards' &&
-        <Cards />
+
+      {!user.id && component?.key == 'login' &&
+        <div className='dashboardLink'
+          onClick={() => setComponent(
+            <SignupForm key='signup' />
+          )}
+        >Need an account?
+          <div>Sign Up!</div>
+        </div>
       }
-      {view == 'decks' &&
-        <Decks />
-      }
+
     </div>
   )
 }

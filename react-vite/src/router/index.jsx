@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from './Layout'
 import ErrorPage from "./ErrorPage";
-import LoginForm from '../components/Forms/LoginForm';
-import SignupForm from "../components/Forms/SignupForm";
-import Dashboard from "../components/Dashboard";
+import Search from "../components/Search";
+import Cards from "../components/Cards";
+import Decks from "../components/Decks";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -12,17 +13,21 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'login',
-        element: <LoginForm />
+        path: 'search',
+        element: <Search />
       },
       {
-        path: 'signup',
-        element: <SignupForm />
+        path: 'cards',
+        element: <Cards />
+      },
+      {
+        path: 'decks',
+        element: <Decks />
       },
       {
         path: '',
         element: <Dashboard />
-      },
+      }
     ],
   }
 ])

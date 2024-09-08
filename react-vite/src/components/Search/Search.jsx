@@ -7,11 +7,6 @@ export default function Search() {
   const [cardList, setCardList] = useState([]);
   const [cardIdx, setCardIdx] = useState(0);
 
-  useEffect(() => {
-    console.log('Card Idx: ', cardIdx)
-    console.log(cardList[cardIdx]?.image_uris.normal)
-  }, [cardIdx])
-
   const getRandomCard = async (e) => {
     e.preventDefault();
     const res = await fetch('https://api.scryfall.com/cards/random');
