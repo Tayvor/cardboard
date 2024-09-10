@@ -1,7 +1,7 @@
 from flask import Blueprint, request
+from flask_login import current_user, login_user, logout_user
 from app.models import User, db
 from app.forms import LoginForm, SignUpForm
-from flask_login import current_user, login_user, logout_user
 
 auth_routes = Blueprint('auth', __name__, url_prefix='/api/auth')
 

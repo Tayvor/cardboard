@@ -10,7 +10,7 @@ export const cardsSlice = createSlice({
   initialState,
   reducers: {
     storeCard(state, action) {
-      state = action.payload
+      state.collection[action.payload.id] = action.payload
     },
     setRandomCard(state, action) {
       state.randomCard = action.payload
@@ -39,6 +39,15 @@ export const thunkGetUserCards = () => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     console.log(data, '***')
+  }
+}
+
+export const thunkStoreCard = () => async dispatch => {
+  const res = await fetch('/api/cards/create');
+
+  if (res.ok) {
+    const data = await res.json();
+    console.log(data, '---')
   }
 }
 

@@ -21,6 +21,11 @@ export default function Search() {
     setImageURL(res.imgUrl);
   }
 
+  const saveCard = async (e) => {
+    e.preventDefault();
+
+  }
+
   const getCardByName = async () => {
     const res = await fetch(`https://api.scryfall.com/cards/search?q=${cardName}&unique=prints&order=set`);
 
@@ -83,6 +88,11 @@ export default function Search() {
         onClick={(e) => getRandomCard(e)}
         className='randomImgBtn'
       >Random Card</button>
+
+      <button
+        onClick={(e) => saveCard(e)}
+        className='randomImgBtn'
+      >Save</button>
     </div>
   )
 }
