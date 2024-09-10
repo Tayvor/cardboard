@@ -7,7 +7,7 @@ from app.models import db, User
 def is_unique_email(form, field):
   email = field.data
   query = db.select(User).filter_by(email=email)
-  user = db.session.execute(query)
+  user = db.session.scalar(query)
 
   if user:
     raise ValidationError('Email address is already in use.')
@@ -16,7 +16,7 @@ def is_unique_email(form, field):
 def is_unique_username(form, field):
   username = field.data
   query = db.select(User).filter_by(username=username)
-  user = db.session.execute(query)
+  user = db.session.scalar(query)
 
   if user:
     raise ValidationError('Username is already in use.')
