@@ -39,8 +39,8 @@ export const thunkLogin = (data) => async dispatch => {
     dispatch(addUser(user))
   }
   else {
-    const error = await res.json()
-    return error
+    const error = await res.json();
+    return error;
   }
 }
 
