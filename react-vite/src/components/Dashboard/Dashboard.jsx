@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import LoginForm from '../Forms/LoginForm';
 import SignupForm from '../Forms/SignupForm';
@@ -8,7 +8,8 @@ import './Dashboard.css';
 
 export default function Dashboard() {
   const user = useSelector((state) => state.session.user);
-  const [component, setComponent] = useState(<LoginForm key='login' />)
+  const [component, setComponent] = useState(<LoginForm key='login' />);
+
 
   return (
     <div className='dashboard'>

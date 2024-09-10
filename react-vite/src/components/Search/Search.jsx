@@ -1,20 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { thunkGetRandomCard } from "../../redux/cards";
 import './Search.css';
 
 export default function Search() {
+  const dispatch = useDispatch();
   const [imageURL, setImageURL] = useState('');
   const [cardName, setCardName] = useState('');
   const [cardList, setCardList] = useState([]);
   const [cardIdx, setCardIdx] = useState(0);
+  const randomCard = useSelector((state) => state.cards.randomCard);
+
+  useEffect(() => {
+    console.log(randomCard)
+  }, [randomCard])
 
   const getRandomCard = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://api.scryfall.com/cards/random');
-
-    if (res.ok) {
-      const data = await res.json();
-      setImageURL(data.image_uris.normal);
-    }
+    const res = await dispatch(thunkGetRandomCard());
+    setImageURL(res.imgUrl);
   }
 
   const getCardByName = async () => {

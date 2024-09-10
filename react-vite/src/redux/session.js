@@ -21,7 +21,8 @@ export const thunkSignup = (data) => async dispatch => {
 
   if (res.ok) {
     const user = await res.json();
-    dispatch(addUser(user))
+    dispatch(addUser(user));
+
   } else {
     const error = await res.json();
     return error;
@@ -36,9 +37,9 @@ export const thunkLogin = (data) => async dispatch => {
 
   if (res.ok) {
     const user = await res.json();
-    dispatch(addUser(user))
-  }
-  else {
+    dispatch(addUser(user));
+
+  } else {
     const error = await res.json();
     return error;
   }
@@ -52,5 +53,5 @@ export const thunkLogout = () => async dispatch => {
   }
 }
 
-export const { addUser, removeUser } = sessionSlice.actions
-export default sessionSlice.reducer
+export const { addUser, removeUser } = sessionSlice.actions;
+export default sessionSlice.reducer;

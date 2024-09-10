@@ -17,13 +17,7 @@ function LoginForm() {
     data.append('username', username);
     data.append('password', password);
 
-    const res = await dispatch(thunkLogin(data));
-
-    if (res) {
-      const error = await res.json();
-      return
-    }
-
+    dispatch(thunkLogin(data));
     navigate('/');
   }
 
