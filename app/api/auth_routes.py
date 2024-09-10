@@ -52,11 +52,3 @@ def login():
 def logout():
   logout_user()
   return {'message': 'User logged out.'}
-
-
-# @auth_routes.get('/unauthorized')
-# def unauthorized():
-#     """
-#     Returns unauthorized JSON when flask-login authentication fails
-#     """
-#     return {'errors': {'message': 'Unauthorized'}}, 401

@@ -33,5 +33,14 @@ export const thunkGetRandomCard = () => async dispatch => {
   }
 }
 
+export const thunkGetUserCards = () => async dispatch => {
+  const res = await fetch('/api/cards/all');
+
+  if (res.ok) {
+    const data = await res.json();
+    console.log(data, '***')
+  }
+}
+
 export const { storeCard, setRandomCard } = cardsSlice.actions;
 export default cardsSlice.reducer;
