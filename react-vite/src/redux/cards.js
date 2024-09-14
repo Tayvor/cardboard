@@ -38,16 +38,17 @@ export const thunkGetUserCards = () => async dispatch => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log(data, '***')
   }
 }
 
-export const thunkStoreCard = () => async dispatch => {
-  const res = await fetch('/api/cards/create');
+export const thunkStoreCard = (card) => async dispatch => {
+  const res = await fetch('/api/cards/create', {
+    method: 'POST',
+    body: card,
+  });
 
   if (res.ok) {
     const data = await res.json();
-    console.log(data, '---')
   }
 }
 

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import './Cards.css';
 
 export default function Cards() {
-  const cards = useSelector((state) => state.cards);
+  const cards = useSelector((state) => state.cards.collection);
 
   useEffect(() => {
     console.log('Cards: ', cards)

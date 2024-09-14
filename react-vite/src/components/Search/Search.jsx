@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetRandomCard } from "../../redux/cards";
+import { thunkGetRandomCard, thunkStoreCard } from "../../redux/cards";
 import './Search.css';
 
 export default function Search() {
@@ -23,7 +23,7 @@ export default function Search() {
 
   const saveCard = async (e) => {
     e.preventDefault();
-
+    const res = await dispatch(thunkStoreCard(randomCard));
   }
 
   const getCardByName = async () => {
@@ -89,10 +89,12 @@ export default function Search() {
         className='randomImgBtn'
       >Random Card</button>
 
-      <button
-        onClick={(e) => saveCard(e)}
-        className='randomImgBtn'
-      >Save</button>
+      {randomCard.name &&
+        <button
+          onClick={(e) => saveCard(e)}
+          className='randomImgBtn'
+        >Save</button>
+      }
     </div>
   )
 }
