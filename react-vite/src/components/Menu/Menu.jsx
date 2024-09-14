@@ -1,24 +1,30 @@
-import { useState } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import './Menu.css';
 
-export default function Menu({ setView }) {
+export default function Menu() {
 
   return (
-    <ul className="menu">
-      <li
-        onClick={() => setView('search')}
-      >Search</li>
-      <hr />
+    <nav id="menu">
+      <NavLink
+        to='/search'
+        className={({ isActive, isPending }) =>
+          isPending ? 'pending' : isActive ? 'active' : ''
+        }
+      >Search</NavLink>
 
-      <li
-        onClick={() => setView('cards')}
-      >Cards</li>
-      <hr />
+      <NavLink
+        to='/cards'
+        className={({ isActive, isPending }) =>
+          isPending ? 'pending' : isActive ? 'active' : ''
+        }
+      >Cards</NavLink>
 
-      <li
-        onClick={() => setView('decks')}
-      >Decks</li>
-      <hr />
-    </ul>
+      <NavLink
+        to='/decks'
+        className={({ isActive, isPending }) =>
+          isPending ? 'pending' : isActive ? 'active' : ''
+        }
+      >Decks</NavLink>
+    </nav>
   )
 }

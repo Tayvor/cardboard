@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { thunkLogin } from '../../redux/session';
 import './Forms.css';
@@ -17,13 +17,7 @@ function LoginForm() {
     data.append('username', username);
     data.append('password', password);
 
-    const res = await dispatch(thunkLogin(data));
-
-    if (res) {
-      const error = await res.json();
-      return
-    }
-
+    dispatch(thunkLogin(data));
     navigate('/');
   }
 
@@ -52,13 +46,6 @@ function LoginForm() {
       <button
         className='authSubmit'
       >Submit</button>
-
-      <div className="footer">Need an account?
-        <div
-          className="footerLink"
-          onClick={() => navigate('/signup')}
-        >Sign Up!</div>
-      </div>
     </form>
   )
 }

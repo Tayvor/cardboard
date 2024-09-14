@@ -1,7 +1,7 @@
 from flask import Blueprint, request
+from flask_login import current_user, login_user, logout_user
 from app.models import User, db
 from app.forms import LoginForm, SignUpForm
-from flask_login import current_user, login_user, logout_user
 
 auth_routes = Blueprint('auth', __name__, url_prefix='/api/auth')
 
@@ -52,11 +52,3 @@ def login():
 def logout():
   logout_user()
   return {'message': 'User logged out.'}
-
-
-# @auth_routes.get('/unauthorized')
-# def unauthorized():
-#     """
-#     Returns unauthorized JSON when flask-login authentication fails
-#     """
-#     return {'errors': {'message': 'Unauthorized'}}, 401

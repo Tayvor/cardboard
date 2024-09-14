@@ -24,14 +24,10 @@ export default function Header() {
 
       {user?.username ?
         <button
-          className='loginBtn btn'
+          className='logoutBtn btn'
           onClick={(e) => logout(e)}
         >Logout</button>
-        :
-        <button
-          className='loginBtn btn'
-          onClick={() => navigate('/login')}
-        >Login</button>
+        : ''
       }
     </div >
   )

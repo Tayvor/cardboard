@@ -1,19 +1,22 @@
-.menu {
+#menu {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: fit-content;
-  font-size: 25px;
+  min-width: 200px;
   padding: 10px;
-  list-style-type: none;
 }
 
-.menu>li {
+#menu a {
+  display: flex;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 10px;
   padding: 5px;
-  border-radius: 5px;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
 }
 
-.menu>li:hover {
-  background-color: lightblue;
-  cursor: pointer;
+#menu a.active {
+  background-color: rgba(136, 223, 155, 0.356);
 }

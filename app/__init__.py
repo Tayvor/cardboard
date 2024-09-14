@@ -8,6 +8,7 @@ from .models import db, User
 from .config import Config
 from .seeds import seed_commands
 from .api.auth_routes import auth_routes
+from .api.card_routes import card_routes
 
 
 app = Flask(__name__, static_folder='../react-vite/dist', static_url_path='/')
@@ -35,6 +36,7 @@ app.config.from_object(Config)
 
 # connect blueprints
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(card_routes, url_prefix='/api/cards')
 
 
 # initialize database with flask app, and flask-migrate

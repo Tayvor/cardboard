@@ -1,25 +1,29 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { thunkGetRandomCard, thunkStoreCard } from "../../redux/cards";
 import './Search.css';
 
 export default function Search() {
+  const dispatch = useDispatch();
   const [imageURL, setImageURL] = useState('');
   const [cardName, setCardName] = useState('');
   const [cardList, setCardList] = useState([]);
   const [cardIdx, setCardIdx] = useState(0);
+  const randomCard = useSelector((state) => state.cards.randomCard);
 
   useEffect(() => {
-    console.log('Card Idx: ', cardIdx)
-    console.log(cardList[cardIdx]?.image_uris.normal)
-  }, [cardIdx])
+    console.log(randomCard)
+  }, [randomCard])
 
   const getRandomCard = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://api.scryfall.com/cards/random');
+    const res = await dispatch(thunkGetRandomCard());
+    setImageURL(res.imgUrl);
+  }
 
-    if (res.ok) {
-      const data = await res.json();
-      setImageURL(data.image_uris.normal);
-    }
+  const saveCard = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(thunkStoreCard(randomCard));
   }
 
   const getCardByName = async () => {
@@ -84,6 +88,13 @@ export default function Search() {
         onClick={(e) => getRandomCard(e)}
         className='randomImgBtn'
       >Random Card</button>
+
+      {randomCard.name &&
+        <button
+          onClick={(e) => saveCard(e)}
+          className='randomImgBtn'
+        >Save</button>
+      }
     </div>
   )
 }
