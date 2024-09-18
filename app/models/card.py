@@ -19,6 +19,7 @@ class Card(db.Model):
   power = db.Column(db.String)
   toughness = db.Column(db.String)
   rarity = db.Column(db.String)
+  img_url = db.Column(db.String)
 
   artist = db.Column(db.String)
   artist_id = db.Column(db.String)
