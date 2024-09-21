@@ -15,7 +15,7 @@ def get_user_cards():
   return jsonify(cards)
 
 
-@card_routes.route('/create', methods=['POST'])
+@card_routes.post('/create')
 def create_card():
   form = CardForm()
   form['csrf_token'].data = request.cookies['csrf_token']
