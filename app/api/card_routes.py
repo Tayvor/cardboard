@@ -5,7 +5,7 @@ from app.forms import CardForm
 card_routes = Blueprint('card', __name__, url_prefix='/api/cards')
 
 
-card_routes.get('/all')
+@card_routes.get('/all')
 def get_user_cards():
   cards = [
     {1: 'one'},
@@ -15,7 +15,7 @@ def get_user_cards():
   return jsonify(cards)
 
 
-card_routes.route('/create', methods=['POST'])
+@card_routes.post('/create')
 def create_card():
   form = CardForm()
   form['csrf_token'].data = request.cookies['csrf_token']
