@@ -23,7 +23,12 @@ export default function Search() {
 
   const saveCard = async (e) => {
     e.preventDefault();
-    const res = await dispatch(thunkStoreCard(randomCard));
+
+    const cardData = new FormData();
+    cardData.append('name', randomCard['name']);
+    cardData.append('scryfall_id', randomCard['id'].toString());
+
+    const res = await dispatch(thunkStoreCard(cardData));
   }
 
   const getCardByName = async () => {
