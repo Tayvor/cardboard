@@ -28,14 +28,17 @@ export default function Search() {
     cardData.append('scryfall_id', randomCard['id']);
     cardData.append('tcgplayer_id', randomCard['tcgplayer_id']);
     cardData.append('oracle_id', randomCard['oracle_id']);
+
     cardData.append('name', randomCard['name']);
     cardData.append('mana_cost', randomCard['mana_cost']);
     cardData.append('power', randomCard['power']);
     cardData.append('toughness', randomCard['toughness']);
     cardData.append('rarity', randomCard['rarity']);
     cardData.append('img_url', randomCard['image_uris']['normal']);
+
     cardData.append('artist', randomCard['artist']);
     cardData.append('artist_id', randomCard['artist_id']);
+
     cardData.append('set_code', randomCard['set']);
     cardData.append('set_name', randomCard['set_name']);
     cardData.append('set_id', randomCard['set_id']);

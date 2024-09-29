@@ -44,22 +44,23 @@ def create_card():
   # else:
   card = Card(
     scryfall_id = uuid.UUID(form.data['scryfall_id']),
+    tcgplayer_id = form.data['tcgplayer_id'],
+    oracle_id = form.data['oracle_id'],
     name = form.data['name'],
+    mana_cost = form.data['mana_cost'],
+    power = form.data['power'],
+    toughness = form.data['toughness'],
+    rarity = form.data['rarity'],
+    img_url = form.data['img_url'],
+    artist = form.data['artist'],
+    artist_id = form.data['artist_id'],
+    set_code = form.data['set_code'],
+    set_name = form.data['set_name'],
+    set_id = form.data['set_id']
   )
-      # tcgplayer_id = form.data['tcgplayer_id'],
-      # oracle_id = form.data['oracle_id'],
       # colors = form.data['colors'],
-      # mana_cost = form.data['mana_cost'],
       # keywords = form.data['keywords'],
-      # power = form.data['power'],
-      # toughness = form.data['toughness'],
-      # rarity = form.data['rarity'],
-      # artist = form.data['artist'],
-      # artist_id = form.data['artist_id'],
       # illustration_id = form.data['illustration_id'],
-      # set_code = form.data['set_code'],
-      # set_name = form.data['set_name'],
-      # set_id = form.data['set_id']
   db.session.add(card)
   db.session.commit()
   return card
