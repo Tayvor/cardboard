@@ -93,12 +93,14 @@ export default function Search() {
         <div>
           <button
             onClick={(e) => showPrevCard(e)}
+            className="btn"
           >prev</button>
 
           <img className='randomImg' src={imageURL} alt="" />
 
           <button
             onClick={(e) => showNextCard(e)}
+            className="btn"
           >next</button>
 
         </div>

@@ -57,3 +57,19 @@
   border: 2px solid black;
   color: black;
 }
+
+.btn {
+  border-radius: 3px;
+  border: 1px solid gray;
+  margin: 5px;
+  background-color: white;
+  color: gray;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  cursor: pointer;
+  border: 2px solid black;
+  color: black;
+  box-sizing: border-box;
+}

@@ -2,8 +2,3 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-.btn:hover {
-  cursor: pointer;
-  box-shadow: 0 0 3px 3px;
-}
